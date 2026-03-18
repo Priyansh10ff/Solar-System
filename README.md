@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Priyansh10ff/Solar-System">Source Code</a>
+  <img src="./image.png" alt="Solar System Observer preview" />
 </p>
 
 ---
