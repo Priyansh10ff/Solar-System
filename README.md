@@ -1,42 +1,55 @@
 # Solar System Observer
 
-Interactive 3D solar system built with Next.js, Three.js, and React Three Fiber.
+<p align="center">
+  Interactive 3D heliocentric solar system built with Next.js + React Three Fiber.
+</p>
 
-## What Is Implemented
+<p align="center">
+  <a href="https://github.com/Priyansh10ff/Solar-System">Source Code</a>
+</p>
+
+---
+
+## Overview
+
+This project renders a stylized, interactive Solar System scene with real-data-seeded start angles, live telemetry, and simulation speed controls.
+
+## Features
 
 - Sun + 8 planets (Mercury to Neptune)
-- Circular orbit rings and animated orbital motion
+- Circular orbit tracks with animated orbital motion
 - Planet self-rotation with axial tilt
 - Earth cloud layer
 - Saturn rings
 - Asteroid belt particle field
-- Left planet list and right info panel with live angles/progress
-- Pause/Resume + speed slider (`0.1` to `100`)
-- UTC clock in the HUD
+- Planet sidebar selector + telemetry info panel
+- Pause/Resume + speed control (`0.1x` to `100x`)
+- UTC live clock in the HUD
+- In-app `Source Code` button linking to this repository
 
-## Time And Accuracy Notes
+## Time And Accuracy
 
-- Planet start angles are seeded from current UTC time using J2000 formulas:
-  - Mean longitude: `L = L0 + n * d`
-  - Prime meridian: `W = W0 + Wn * d`
-- Orbits are rendered as circular paths at fixed visual radii (not full N-body or ellipse rendering).
-- Simulation speed is accelerated:
-  - `speed = 1` means about **1 simulated Earth day per 1 real second**
-  - So this is **not 1:1 real-time motion like the real universe**
+- Initial orbit and rotation angles are seeded from current UTC time using J2000-based formulas:
+  - `L = L0 + n * d` (mean longitude)
+  - `W = W0 + Wn * d` (prime meridian rotation)
+- Orbits are rendered as circular visual paths at fixed radii.
+- Simulation is intentionally accelerated:
+  - At `speed = 1`, about **1 simulated Earth day passes per real second**
+  - Motion is therefore **not 1:1 real-time with the physical universe**
 
 ## Textures
 
-- Current rendering path uses procedural textures from `data/PlanetTextures.js`.
-- `public/textures/*` files and `scripts/download-textures.mjs` exist in the repo, but they are not currently wired into the active planet material pipeline.
+- Active rendering uses procedural textures from `data/PlanetTextures.js`.
+- `public/textures/*` and `scripts/download-textures.mjs` are present, but not currently used by the active planet material path.
 
-## Getting Started
+## Quick Start
 
-Requirements:
+### Requirements
 
 - Node.js 18+
 - npm
 
-Run:
+### Run Locally
 
 ```bash
 cd solar-system
@@ -44,47 +57,49 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open: `http://localhost:3000`
+
+## Controls
+
+| Input | Action |
+|---|---|
+| Scroll | Zoom camera |
+| Left drag | Orbit camera |
+| Right drag | Pan camera |
+| Click planet | Open telemetry/info panel |
+| Speed slider | Adjust simulation speed |
+| Pause button | Pause/Resume simulation |
 
 ## Tech Stack
 
 - Next.js 14
 - React 18
 - Three.js
-- @react-three/fiber
-- @react-three/drei
+- `@react-three/fiber`
+- `@react-three/drei`
 
 ## Project Structure
 
 ```text
 solar-system/
-  app/
-    layout.jsx
-    page.jsx
-    globals.css
-  components/
-    SolarSystem.jsx
-    Planet.jsx
-    Sun.jsx
-    AsteroidBelt.jsx
-    PlanetList.jsx
-    InfoPanel.jsx
-  data/
-    planets.js
-    orbital.js
-    PlanetTextures.js
-  scripts/
-    download-textures.mjs
+├── app/
+│   ├── globals.css
+│   ├── layout.jsx
+│   └── page.jsx
+├── components/
+│   ├── AsteroidBelt.jsx
+│   ├── InfoPanel.jsx
+│   ├── Planet.jsx
+│   ├── PlanetList.jsx
+│   ├── SolarSystem.jsx
+│   └── Sun.jsx
+├── data/
+│   ├── orbital.js
+│   ├── PlanetTextures.js
+│   └── planets.js
+└── scripts/
+    └── download-textures.mjs
 ```
-
-## Controls
-
-- Scroll: zoom
-- Left drag: orbit camera
-- Right drag: pan
-- Click planet: open telemetry/info panel
-- Speed slider: change simulation speed
-- Pause button: pause/resume simulation
 
 ## License
 
