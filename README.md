@@ -2,8 +2,6 @@
 
 A real-time interactive 3D solar system built with Next.js, Three.js, and React Three Fiber. Every planet is positioned where it actually is in space **right now**, using real Keplerian orbital mechanics.
 
-![Solar System Observer](https://placeholder-for-your-screenshot.png)
-
 ---
 
 ## ✨ Features
