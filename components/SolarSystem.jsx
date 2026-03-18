@@ -51,6 +51,14 @@ export default function SolarSystem() {
 
         {/* Speed + pause */}
         <div className="hud-ctrl">
+          <a
+            className="hud-btn hud-linkbtn"
+            href="https://github.com/Priyansh10ff/Solar-System"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SOURCE CODE
+          </a>
           <button className={`hud-btn ${paused ? "btn-play" : "btn-pause"}`} onClick={() => setPaused(p => !p)}>
             {paused ? "▶ RESUME" : "⏸ PAUSE"}
           </button>
@@ -126,6 +134,15 @@ export default function SolarSystem() {
           font-family:'Exo 2',sans-serif;font-size:.68rem;letter-spacing:.1em;transition:all .15s;
         }
         .hud-btn:hover{background:rgba(255,255,255,.13);}
+        .hud-linkbtn{
+          text-decoration:none;
+          border-color:rgba(76,160,255,.45);
+          color:#8fc0ff;
+        }
+        .hud-linkbtn:hover{
+          border-color:rgba(120,190,255,.7);
+          color:#b8dcff;
+        }
         .btn-play{border-color:rgba(76,255,128,.4)!important;color:#4cff80!important;}
         .btn-pause{border-color:rgba(240,192,64,.4)!important;color:#f0c040!important;}
         .hud-speed { display:flex;flex-direction:column;gap:3px;min-width:130px; }
